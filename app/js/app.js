@@ -9,7 +9,7 @@ var appDirectives = angular.module('appDirectives', []);
 app.config(['$locationProvider', '$routeProvider', 
   function($location, $routeProvider) {
     $routeProvider.
-        when('/list', {
+        when('/', {
             templateUrl: 'partials/post.list.html',
             controller: 'PostListCtrl'
         }).
@@ -18,7 +18,7 @@ app.config(['$locationProvider', '$routeProvider',
             controller: 'PostViewCtrl'
         }).
         otherwise({
-            redirectTo: '/list'
+            redirectTo: '/'
         });
 }]);
 
