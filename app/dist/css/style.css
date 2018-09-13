@@ -27,12 +27,14 @@ a:hover {
 .post .post-header .post-title {
   color: #222;
   font-size: 1.8em;
-  margin: 0 0 0 0.2em;
+  margin: 0 0 0.5em 0em;
 }
 .post .post-header .post-avatar {
   border-radius: 50%;
   float: right;
   margin-left: 1em;
+  max-width: 30%;
+  width: 150px;
 }
 .post .post-header .post-meta {
   color: #999;

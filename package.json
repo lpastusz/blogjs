@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "gulp-concat": "~2.2.0",
-    "gulp": "~3.6.2",
-    "less": "~1.7.0",
-    "gulp-less": "~1.2.3"
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-less": "^1.2.4",
+    "less": "~1.7.0"
   }
 }
