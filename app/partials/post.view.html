@@ -1,11 +1,11 @@
 <section class="post">
     <header class="post-header">
         <img class="post-avatar" alt="Kevin Delemme" src="img/team.jpg">
-        <h2 class="post-title"><a href="#/post/{{post._id}}">{{post.title}}</a></h2>
+        <h2 class="post-title"><a href="#/{{post._id}}">{{post.title}}</a></h2>
         <div class="post-meta"><i class="fa fa-bullseye"></i> Posted on {{post.created | date:'medium'}}</div>
     </header>
     <div class="post-content">
-        <p ng-bind-html="post.content"></p>
+        <p ng-if="post.content" ng-bind-html="post.content | trustAs"></p>
     </div>
     <footer class="post-footer">
     </footer>

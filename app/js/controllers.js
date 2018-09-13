@@ -3,13 +3,17 @@ appControllers.controller('PostListCtrl', ['$scope', '$sce', 'PostService',
 
         $scope.posts = [];
 
-        PostService.findAllPublished().then(function(data) {
+        return PostService.findAllPublished().then(function(data) {
             for (var postKey in data) {
-                data[postKey].content = $sce.trustAsHtml(data[postKey].content);
+                if (data[postKey].content.length > 100) {
+                    data[postKey].content = data[postKey].content.slice(0,90) + '...';
+                }
+                
             }
 
-            $scope.posts = data;  
-            $scope.$apply();          
+            $scope.$apply(() => {
+                $scope.posts = data;  
+            });          
         }).catch(function(error) {
             console.log(error);
         });
@@ -19,13 +23,13 @@ appControllers.controller('PostListCtrl', ['$scope', '$sce', 'PostService',
 appControllers.controller('PostViewCtrl', ['$scope', '$routeParams', '$location', '$sce', 'PostService',
     function PostViewCtrl($scope, $routeParams, $location, $sce, PostService) {
 
-        $scope.post = {};
+        $scope.post = null;
         var id = $routeParams.id;
 
-        PostService.read(id).then(function(data) {
-            data.content = $sce.trustAsHtml(data.content);
-            $scope.post = data;
-            $scope.$apply();
+        return PostService.read(id).then(function(data) {
+            $scope.$apply(() => {
+                $scope.post = data;
+            });
         }).catch(function(error) {
             console.log(error);
         });
